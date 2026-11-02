@@ -136,7 +136,7 @@ $('#enquiry-form').addEventListener('submit', event => {
   if (!form.reportValidity()) return;
   const data = Object.fromEntries(new FormData(form));
   lastBrief = `Hello FR Design Studio,\n\nI would like to discuss a project with you.\n\nName: ${data.name.trim()}\nEmail: ${data.email.trim()}\nService: ${data.service}\nProject location: ${data.location.trim() || 'To be discussed'}\n\nAbout my project:\n${data.message.trim()}\n\nBest regards,\n${data.name.trim()}`;
-  const mailto = `mailto:rahmanfaizal116@gmail.com?subject=${encodeURIComponent(`Project enquiry — ${data.service}`)}&body=${encodeURIComponent(lastBrief)}`;
+  const mailto = `mailto:frdesignstudioarchitect@gmail.com?subject=${encodeURIComponent(`Project enquiry — ${data.service}`)}&body=${encodeURIComponent(lastBrief)}`;
   $('#form-status').hidden = false;
   window.location.href = mailto;
 });

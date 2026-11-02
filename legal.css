@@ -1,0 +1,38 @@
+.legal-header{display:flex;align-items:center;justify-content:space-between;min-height:68px;border-bottom:1px solid var(--line);gap:20px;padding:0 var(--pad)}
+.legal-header .brand{padding:0}
+.legal-brand{font-size:18px;font-weight:600;letter-spacing:-.7px;display:flex;align-items:center;gap:12px}
+.legal-home{display:flex;align-items:center;gap:24px;padding:14px 0;color:var(--accent);font-size:10px}
+.legal-home span{font-size:20px;font-family:var(--sans)}
+.legal-hero{padding:64px var(--pad) 50px;border-bottom:1px solid var(--line)}
+.legal-hero .section-kicker{margin-bottom:35px}
+.legal-hero h1{font-size:clamp(48px,7vw,104px);max-width:900px}
+.legal-hero>p{font-size:20px;max-width:620px;letter-spacing:-.35px;line-height:1.45;margin-top:28px}
+.legal-layout{display:grid;grid-template-columns:minmax(190px,1fr) minmax(0,2.6fr);gap:68px;padding:54px var(--pad) 64px}
+.legal-index{align-self:start;position:sticky;top:28px;border-top:1px solid var(--line);padding-top:18px}
+.legal-index>span{font-size:9px;color:var(--muted);display:block;margin-bottom:20px}
+.legal-index ol{list-style:none;counter-reset:legal-index;padding:0;margin:0}
+.legal-index li{counter-increment:legal-index;margin-bottom:15px}
+.legal-index a{display:flex;align-items:baseline;gap:15px;font-size:12px;line-height:1.45}
+.legal-index a::before{content:counter(legal-index,decimal-leading-zero);font-family:var(--mono);font-size:9px;color:var(--accent)}
+.legal-index a:hover{color:var(--accent)}
+.legal-content{max-width:800px}
+.legal-section{border-top:1px solid var(--line);padding:24px 0 36px;scroll-margin-top:28px}
+.legal-section>span{font-size:9px;color:var(--accent);display:block;margin-bottom:14px}
+.legal-section h2{font-size:30px;line-height:1.12;letter-spacing:-.035em;margin-bottom:20px}
+.legal-section p,.legal-section li{font-size:16px;line-height:1.7;color:#53564b}
+.legal-section p+p{margin-top:16px}
+.legal-section a:not(.text-link){text-decoration:underline;text-underline-offset:4px;color:var(--ink);overflow-wrap:anywhere}
+.legal-section a:hover{color:var(--accent)}
+.legal-section ul{padding-left:20px;margin:18px 0 0}
+.legal-section li{padding-left:4px;margin-top:9px}
+.legal-section address{font-size:16px;line-height:1.7;font-style:normal;color:#53564b;margin-top:18px}
+.legal-section .text-link{font-size:10px;margin-top:23px;max-width:100%;overflow-wrap:anywhere}
+.legal-callout{border-left:2px solid var(--accent);padding:14px 20px;background:#e5e5dc;margin-top:20px}
+.legal-callout p{font-size:14px;line-height:1.6}
+.legal-footer{padding:25px var(--pad);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:22px}
+.legal-footer>span{font-size:9px;color:var(--muted)}
+.legal-footer nav{display:flex;gap:25px;flex-wrap:wrap;font-size:10px}
+.legal-footer a[aria-current=page]{color:var(--accent)}
+.legal-footer a:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:800px){.legal-layout{gap:34px;grid-template-columns:minmax(150px,1fr) minmax(0,2.5fr)}.legal-hero>p{font-size:18px}.legal-section h2{font-size:27px}}
+@media(max-width:600px){.legal-header{min-height:60px;padding:0 17px;gap:12px}.legal-brand{font-size:14px}.legal-home{font-size:8px;gap:10px}.legal-hero{padding:38px 18px 35px}.legal-hero h1{font-size:47px;letter-spacing:-.055em}.legal-hero>p{font-size:16px;margin-top:23px}.legal-hero .section-kicker{font-size:8px;margin-bottom:28px}.legal-layout{display:block;padding:30px 18px 35px}.legal-index{position:static;border-bottom:1px solid var(--line);padding:17px 0 8px;margin-bottom:32px}.legal-index ol{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.legal-index a{font-size:11px;gap:10px}.legal-index>span{font-size:8px;margin-bottom:17px}.legal-section{padding:23px 0 29px;scroll-margin-top:18px}.legal-section h2{font-size:26px;margin-bottom:17px}.legal-section p,.legal-section li,.legal-section address{font-size:14px;line-height:1.7}.legal-section>span{font-size:8px}.legal-callout{padding:13px 15px}.legal-callout p{font-size:13px}.legal-footer{align-items:flex-start;flex-direction:column;padding:22px 18px}.legal-footer nav{gap:18px;font-size:9px}.legal-footer>span{font-size:8px}}

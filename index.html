@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eeede6">
+  <title>FR Design Studio — Architecture, Interiors & Possibility</title>
+  <meta name="description" content="FR Design Studio is an architecture, interior design and consultancy studio in Ramanathapuram, Tamil Nadu. Thoughtful spaces, shaped around you.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="motion.css">
+  <script src="app.js" defer></script>
+  <script src="motion.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="site-shell" id="top">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="FR Design Studio home">
+        <span class="brand-emblem"><img src="assets/fr-logo.png" width="512" height="512" alt=""></span>
+        <span class="brand-secondary">DESIGN STUDIO</span>
+      </a>
+      <button class="menu-toggle mono" aria-expanded="false" aria-controls="main-nav">MENU <span aria-hidden="true">+</span></button>
+      <nav class="main-nav mono" id="main-nav" aria-label="Main navigation">
+        <a href="#work">EXPLORE <span>01</span></a>
+        <a href="#studio">THE STUDIO <span>02</span></a>
+        <a href="#services">SERVICES <span>03</span></a>
+        <a class="nav-contact" href="#contact">LET’S TALK <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="drawing-frame">
+          <div class="drawing-top mono"><span><i class="status-dot"></i> ARCHITECTURE · INTERIORS · CONSULTANCY</span><span>RAMANATHAPURAM, INDIA <span class="small-cross">+</span></span></div>
+          <span class="cross cross-tl" aria-hidden="true">+</span><span class="cross cross-tr" aria-hidden="true">+</span><span class="cross cross-bl" aria-hidden="true">+</span><span class="cross cross-br" aria-hidden="true">+</span>
+          <div class="ruler ruler-top" aria-hidden="true"></div><div class="ruler ruler-bottom" aria-hidden="true"></div>
+          <div class="hero-art">
+            <img src="assets/hero-architecture.png" width="1672" height="941" fetchpriority="high" alt="Original pencil drawing of a contemporary tropical home with deep overhangs, timber screens, and planted courtyards">
+            <button class="hotspot hotspot-one" data-feature="light" aria-expanded="false" aria-label="Explore natural light"><span class="hotspot-dot"></span><span class="hotspot-label mono">01 / LIGHT</span></button>
+            <button class="hotspot hotspot-two" data-feature="material" aria-expanded="false" aria-label="Explore honest materials"><span class="hotspot-dot"></span><span class="hotspot-label mono">02 / MATERIAL</span></button>
+            <button class="hotspot hotspot-three" data-feature="nature" aria-expanded="false" aria-label="Explore connection to nature"><span class="hotspot-dot"></span><span class="hotspot-label mono">03 / NATURE</span></button>
+            <div class="drawing-note" id="drawing-note" hidden><span class="mono" id="note-title"></span><p id="note-copy"></p></div>
+          </div>
+          <div class="drawing-bottom mono"><span>ELEVATION 01 <span class="muted">/ CONCEPT STUDY</span></span><button id="annotation-toggle" aria-pressed="false">EXPLORE THE DETAILS <span aria-hidden="true">+</span></button><span class="drawing-scale">FORM FOLLOWS FEELING</span></div>
+        </div>
+        <div class="hero-intro">
+          <h1 id="hero-title">THOUGHTFUL SPACES.<br>BETTER EVERYDAY.</h1>
+          <div class="hero-description"><p>Architecture that feels right.<br>Interiors that feel like you.<br>We bring your way of living into focus.</p><a class="text-link mono" href="#work">EXPLORE OUR DESIGN WORLD <span aria-hidden="true">↗</span></a></div>
+        </div>
+        <div class="hero-strip mono"><span>DESIGNED AROUND YOU.</span><span>BUILT ON PURPOSE.</span><a href="#work">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
+      </section>
+
+      <section class="work section-pad" id="work" aria-labelledby="work-title">
+        <div class="section-kicker mono"><span>[01 / SELECTED PROJECTS]</span><span>SPACE · LIGHT · MATERIAL</span></div>
+        <div class="section-heading"><h2 id="work-title">IDEAS,<br>GIVEN FORM.</h2><div class="section-description"><p>Residential architecture, commercial spaces, and interiors. Explore a selection of projects from the studio.</p><p class="image-disclaimer">Architecture & interior design visualizations.</p></div></div>
+        <div class="work-toolbar mono"><div class="filters" role="group" aria-label="Filter projects"><button class="active" data-filter="all" aria-pressed="true">ALL <sup>03</sup></button><button data-filter="architecture" aria-pressed="false">ARCHITECTURE</button><button data-filter="interiors" aria-pressed="false">INTERIORS</button></div><span id="work-count" aria-live="polite">03 PROJECTS</span></div>
+        <div class="project-grid">
+          <button class="project-card" data-category="architecture" data-project="sathik" aria-label="Explore Sathik Residence"><div class="project-image"><img src="assets/projects/sathik-residence.jpg" alt="Sathik Residence visualization with a terracotta vertical frame and shaded balcony" loading="lazy" width="1360" height="765"><span class="project-view mono">VIEW PROJECT ↗</span><span class="project-index mono">[01]</span></div><div class="project-meta"><div><h3>Sathik Residence</h3><p class="mono">ARCHITECTURE / RESIDENTIAL</p></div><span class="project-arrow" aria-hidden="true">↗</span></div></button>
+          <button class="project-card" data-category="architecture" data-project="kathir" aria-label="Explore Kathir Business Centre"><div class="project-image"><img src="assets/projects/kathir-business-centre.jpg" alt="Kathir Business Centre visualization with glass storefronts, vertical screens, and planted terraces" loading="lazy" width="1536" height="1024"><span class="project-view mono">VIEW PROJECT ↗</span><span class="project-index mono">[02]</span></div><div class="project-meta"><div><h3>Kathir Business Centre</h3><p class="mono">ARCHITECTURE / COMMERCIAL</p></div><span class="project-arrow" aria-hidden="true">↗</span></div></button>
+          <button class="project-card" data-category="interiors" data-project="ruban" aria-label="Explore Ruban Residence"><div class="project-image"><img src="assets/projects/ruban-living-room.jpg" alt="Ruban Residence living room visualization with walnut joinery, soft upholstery, and warm integrated lighting" loading="lazy" width="1122" height="1402"><span class="project-view mono">VIEW PROJECT ↗</span><span class="project-index mono">[03]</span></div><div class="project-meta"><div><h3>Ruban Residence</h3><p class="mono">INTERIORS / LIVING & KITCHEN</p></div><span class="project-arrow" aria-hidden="true">↗</span></div></button>
+        </div>
+      </section>
+
+      <section class="studio section-pad" id="studio" aria-labelledby="studio-title">
+        <div class="section-kicker mono"><span>[02 / THE STUDIO]</span><span>ROOTED IN PLACE. OPEN TO POSSIBILITY.</span></div>
+        <div class="studio-grid"><div><h2 id="studio-title">GOOD DESIGN<br>BEGINS WITH<br><span>HOW YOU LIVE.</span></h2><div class="studio-symbol" aria-hidden="true"><svg viewBox="0 0 220 180" fill="none"><path d="m110 12 95 49v66l-95 49-95-49V61L110 12Zm0 0v66m95-17-95 49-95-49m95 49v66M15 94l95 49 95-49M61 37v114m98-114v114M15 61l95-49 95 49-95 49-95-49Z" stroke="currentColor" stroke-width="1"/><path d="m61 85 49-25 49 25-49 25-49-25Z" fill="#df4d2e" stroke="#df4d2e"/></svg><span class="mono">PEOPLE + PLACE + PURPOSE</span></div></div><div class="studio-copy"><p class="lead">We’re FR Design Studio, an architectural and interior design practice based in Ramanathapuram, Tamil Nadu.</p><p>We bring together function, aesthetics, and the technical demands of a site. Our approach considers the environment, local culture, and the everyday experiences that make a space feel personal.</p><div class="studio-values"><div><span class="mono">01</span><h3>Purpose in every line.</h3></div><div><span class="mono">02</span><h3>Respect for the context.</h3></div><div><span class="mono">03</span><h3>Character in the details.</h3></div></div><a href="#contact" class="text-link mono">LET’S MAKE SOMETHING MEANINGFUL <span aria-hidden="true">↗</span></a></div></div>
+      </section>
+
+      <section class="services section-pad" id="services" aria-labelledby="services-title">
+        <div class="section-kicker mono"><span>[03 / WHAT WE DO]</span><span>FROM FIRST THOUGHT TO FINAL DETAIL.</span></div>
+        <div class="services-grid"><div class="services-intro"><h2 id="services-title">ONE VISION.<br>EVERY DETAIL.</h2><p>Architecture, interiors, and consultancy. A connected approach to making the most of your space.</p><button class="text-link mono" data-open-enquiry>DISCUSS YOUR PROJECT <span aria-hidden="true">↗</span></button></div><div class="service-list">
+          <details open><summary><span class="mono">01</span><h3>Architecture</h3><span class="detail-icon" aria-hidden="true">+</span></summary><div class="service-body"><p>Spaces shaped around people, purpose, and place. We explore layouts, building forms, and the relationship between your site and the way you want to live.</p><div class="service-tags mono"><span>SPATIAL PLANNING</span><span>BUILDING DESIGN</span><span>DESIGN DEVELOPMENT</span></div></div></details>
+          <details><summary><span class="mono">02</span><h3>Interior design</h3><span class="detail-icon" aria-hidden="true">+</span></summary><div class="service-body"><p>Interiors that balance practical needs with an individual sense of home. We bring layout, materials, colour, light, and detail into a coherent whole.</p><div class="service-tags mono"><span>SPACE PLANNING</span><span>MATERIAL PALETTES</span><span>INTERIOR DETAILING</span></div></div></details>
+          <details><summary><span class="mono">03</span><h3>Design consultancy</h3><span class="detail-icon" aria-hidden="true">+</span></summary><div class="service-body"><p>A clear perspective on your next move. Discuss your ideas, site, priorities, and design questions with the studio to define a thoughtful direction.</p><div class="service-tags mono"><span>DESIGN REVIEW</span><span>SITE RESPONSE</span><span>PROJECT DIRECTION</span></div></div></details>
+        </div></div>
+      </section>
+
+      <section class="process section-pad" aria-labelledby="process-title"><div class="section-kicker mono"><span>[04 / THE CONVERSATION]</span><span>A GOOD PLACE TO BEGIN</span></div><div class="process-heading"><h2 id="process-title">EVERY SPACE STARTS<br>WITH AN IDEA.</h2><p>Bring us yours. Together, we can turn an open question into a clear design direction.</p></div><div class="process-steps"><article><span class="mono">[01]</span><h3>Listen.</h3><p>Your everyday life, aspirations, and the things that matter most.</p></article><article><span class="mono">[02]</span><h3>Understand.</h3><p>The site, its surroundings, your priorities, and the possibilities.</p></article><article><span class="mono">[03]</span><h3>Explore.</h3><p>Ideas, spatial relationships, materials, and a shared vision.</p></article><article><span class="mono">[04]</span><h3>Refine.</h3><p>A considered design, developed through detail and conversation.</p></article></div></section>
+
+      <section class="contact section-pad" id="contact" aria-labelledby="contact-title"><div class="section-kicker mono"><span>[05 / YOUR NEXT CHAPTER]</span><span><i class="status-dot"></i> LET’S BUILD A CONVERSATION</span></div><div class="contact-heading"><h2 id="contact-title">GREAT SPACES<br>START WITH <span>HELLO.</span></h2><button class="contact-arrow" data-open-enquiry aria-label="Start a project enquiry">↗</button></div><div class="contact-grid"><div class="contact-start"><p>Have a site, a space, or the beginning of an idea?<br>We’d love to hear about it.</p><button class="solid-button mono" data-open-enquiry>START YOUR PROJECT <span aria-hidden="true">↗</span></button></div><div><span class="mono footer-label">NEW ENQUIRIES</span><a class="email-link" href="mailto:rahmanfaizal116@gmail.com">rahmanfaizal116@gmail.com <span aria-hidden="true">↗</span></a><span class="mono footer-label second-label">OUR EXPERTISE</span><p>Architecture · Interiors · Consultancy</p></div><div><span class="mono footer-label">FIND THE STUDIO</span><address>Naganathapuram New St, Anna Nagar<br>Ramanathapuram, Tamil Nadu 623504<br>India</address><a href="https://share.google/4JzlIiijee9257jaK" target="_blank" rel="noopener noreferrer" class="text-link mono">GET DIRECTIONS <span aria-hidden="true">↗</span></a></div></div></section>
+    </main>
+    <footer class="site-footer"><div class="footer-wordmark" aria-hidden="true">FR DESIGN STUDIO<span>+</span></div><div class="footer-bottom mono"><span>© <span id="year">2026</span> FR DESIGN STUDIO</span><nav class="footer-policies" aria-label="Policies"><a href="security.html">SECURITY & PRIVACY</a><a href="terms.html">TERMS & CONDITIONS</a></nav><a href="#top">BACK TO TOP ↑</a></div></footer>
+  </div>
+
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="project-dialog-title"><button class="dialog-close mono" data-close-dialog aria-label="Close project">CLOSE ×</button><div class="project-gallery"><img id="project-dialog-image" src="assets/projects/sathik-residence.jpg" alt=""><div class="gallery-controls"><button id="gallery-previous" class="mono" aria-label="Previous project image">←</button><p id="gallery-caption" class="mono" aria-live="polite"></p><button id="gallery-next" class="mono" aria-label="Next project image">→</button></div><div id="gallery-thumbnails" class="gallery-thumbnails" role="group" aria-label="Project images"></div></div><div class="project-dialog-content"><span class="mono" id="project-dialog-category"></span><h2 id="project-dialog-title"></h2><p id="project-dialog-copy"></p><div class="project-notes" id="project-dialog-notes"></div><p class="image-disclaimer">Project design visualizations. Materials and details may evolve during design development.</p><button class="solid-button mono" data-open-enquiry>DISCUSS A PROJECT WITH US <span>↗</span></button></div></dialog>
+
+  <dialog id="enquiry-dialog" class="enquiry-dialog" aria-labelledby="enquiry-title"><button class="dialog-close mono" data-close-dialog aria-label="Close project enquiry">CLOSE ×</button><span class="mono">[LET’S CREATE SOMETHING THOUGHTFUL]</span><h2 id="enquiry-title">TELL US<br>YOUR IDEA.</h2><p>Start with a few details. We’ll prepare an email for you to send to the studio.</p><form id="enquiry-form"><div class="form-row"><label>Your name<input name="name" autocomplete="name" placeholder="Name" required maxlength="120"></label><label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required maxlength="200"></label></div><div class="form-row"><label>I’m interested in<select name="service" required><option value="">Select a service</option><option>Architecture</option><option>Interior design</option><option>Design consultancy</option><option>Architecture & interiors</option></select></label><label>Project location<input name="location" placeholder="Town or city" maxlength="200"></label></div><label>About your project<textarea name="message" rows="4" placeholder="Tell us about your space, priorities, or what you have in mind…" required maxlength="3000"></textarea></label><button type="submit" class="solid-button mono">COMPOSE ENQUIRY <span aria-hidden="true">↗</span></button><p class="form-note">Opens your email app. Your enquiry is sent only when you send the email. <a href="security.html">Security & privacy</a> · <a href="terms.html">Terms & conditions</a>.</p><p id="form-status" class="form-status" role="status" hidden>Your email draft is ready. If your email app didn’t open, <button type="button" id="download-brief">download your brief</button> and email it to <a href="mailto:rahmanfaizal116@gmail.com">rahmanfaizal116@gmail.com</a>.</p></form></dialog>
+</body>
+</html>

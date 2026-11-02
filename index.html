@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'none'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#eeede6">
@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="motion.css">
   <script src="app.js" defer></script>
   <script src="motion.js" defer></script>
+  <script src="sketch.js" defer></script>
+  <link rel="stylesheet" href="sketch.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -38,12 +40,33 @@
           <div class="ruler ruler-top" aria-hidden="true"></div><div class="ruler ruler-bottom" aria-hidden="true"></div>
           <div class="hero-art">
             <img src="hero-architecture.png" width="1672" height="941" fetchpriority="high" alt="Original pencil drawing of a contemporary tropical home with deep overhangs, timber screens, and planted courtyards">
+
+            <!-- Architectural illustration: reserved content; see COPYRIGHT.md. -->
+            <svg class="sketch-overlay" viewBox="0 0 1672 941" fill="none" aria-hidden="true" focusable="false">
+              <g class="sketch-guides">
+                <path pathLength="1" d="M110 750H1620 M165 795H1580 M165 780V810 M1580 780V810"/>
+                <path pathLength="1" d="M1054 250V785 M1598 298V750 M1583 298H1613 M1583 750H1613"/>
+                <path pathLength="1" d="M180 347H735 M395 315V780 M230 367V775 M980 405H1610"/>
+              </g>
+              <g class="sketch-building">
+                <path pathLength="1" d="M165 750V676H480V702H665V750 M665 702H832V750 M972 750V706H1482V750"/>
+                <path pathLength="1" d="M230 535V368H592L604 388V535 M230 535H604L640 570H245 M395 367V347H684L705 405"/>
+                <path pathLength="1" d="M698 405H985L1054 298H1579V333L1370 455 M1054 298V502H1579V535L1315 604 M985 405V541L1054 502 M985 541H824V434H998 M824 541V571H1008L1054 535"/>
+                <path pathLength="1" d="M1054 333H1579 M1069 366H1370V501 M1136 366V501 M1258 366V501 M1069 501V366 M1370 455H1530V501"/>
+                <path pathLength="1" d="M832 706V584H939V706 M947 706V574H1315V706 M1079 574V706 M1197 574V706 M390 676V573H553V676 M427 573V676 M938 434V541"/>
+                <path pathLength="1" d="M832 706H954V716H962V727H969V738H975V750H832 M832 716H954 M832 727H962 M832 738H969"/>
+              </g>
+              <g class="sketch-screens">
+                <path pathLength="1" d="M246 369V533 M264 369V533 M282 369V533 M300 369V533 M318 369V533 M336 369V533 M354 369V533 M372 369V533 M390 369V533 M408 369V533 M426 369V533 M444 369V533 M462 369V533 M480 369V533 M498 369V533 M516 369V533 M534 369V533 M552 369V533 M570 369V533 M588 369V533"/>
+              </g>
+              <g class="sketch-markers"><circle cx="1054" cy="298" r="7"/><circle cx="230" cy="368" r="7"/><circle cx="832" cy="750" r="7"/></g>
+            </svg>
             <button class="hotspot hotspot-one" data-feature="light" aria-expanded="false" aria-label="Explore natural light"><span class="hotspot-dot"></span><span class="hotspot-label mono">01 / LIGHT</span></button>
             <button class="hotspot hotspot-two" data-feature="material" aria-expanded="false" aria-label="Explore honest materials"><span class="hotspot-dot"></span><span class="hotspot-label mono">02 / MATERIAL</span></button>
             <button class="hotspot hotspot-three" data-feature="nature" aria-expanded="false" aria-label="Explore connection to nature"><span class="hotspot-dot"></span><span class="hotspot-label mono">03 / NATURE</span></button>
             <div class="drawing-note" id="drawing-note" hidden><span class="mono" id="note-title"></span><p id="note-copy"></p></div>
           </div>
-          <div class="drawing-bottom mono"><span>ELEVATION 01 <span class="muted">/ CONCEPT STUDY</span></span><button id="annotation-toggle" aria-pressed="false">EXPLORE THE DETAILS <span aria-hidden="true">+</span></button><span class="drawing-scale">FORM FOLLOWS FEELING</span></div>
+          <div class="drawing-bottom mono"><span>ELEVATION 01 <span class="muted">/ CONCEPT STUDY</span></span><button id="annotation-toggle" aria-pressed="false">EXPLORE THE DETAILS <span aria-hidden="true">+</span></button><button class="sketch-replay" id="sketch-replay" type="button" hidden><span class="replay-label">REPLAY SKETCH</span><span aria-hidden="true">↻</span></button></div>
         </div>
         <div class="hero-intro">
           <h1 id="hero-title">THOUGHTFUL SPACES.<br>BETTER EVERYDAY.</h1>

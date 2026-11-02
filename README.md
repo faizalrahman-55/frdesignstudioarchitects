@@ -11,3 +11,15 @@ All site files and image assets are stored together at the repository root. No b
 ## Updates
 
 Edit `index.html`, `styles.css`, `app.js`, `motion.css`, or `motion.js` as needed, preserve the local asset paths, and push to the publishing branch. The website’s project imagery, branding, and other creative content remain subject to their respective rights; this repository does not grant a blanket reuse licence for those assets.
+
+## Licence
+
+The website software is licensed under [MIT](LICENSE). Studio branding, designs, images, architectural illustration paths and portfolio content remain reserved; see [COPYRIGHT.md](COPYRIGHT.md).
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for supported versions, private reporting, and the website’s safeguards. No secrets are required for this static site.
+
+## Landing animation
+
+`sketch.js` and `sketch.css` animate a brief construction-line drawing sequence, then reveal the pencil illustration. The replay control repeats the sequence on demand. The full image remains available without JavaScript; reduced-motion visitors receive the static illustration.

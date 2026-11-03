@@ -32,10 +32,11 @@
   // Content is visible by default. Only an arriving element receives an
   // animation, so unavailable observers or JavaScript cannot hide a section.
   const revealSelector = [
+    '.hero-intro h1', '.hero-description', '.hero-strip', '.section-kicker',
     '.section-heading', '.project-card', '.studio-grid > div',
     '.services-intro', '.service-list > details', '.process-heading',
     '.process-steps > article', '.contact-heading', '.contact-grid > div',
-    '.legal-hero', '.legal-section', '.policy-section', '[data-reveal]'
+    '.site-footer', '.legal-footer', '.legal-hero', '.legal-section', '.policy-section', '[data-reveal]'
   ].join(',');
   const seen = new WeakSet();
   let revealObserver;
@@ -71,6 +72,68 @@
   observeReveals();
   // The gallery can dispatch this after adding or replacing project cards.
   document.addEventListener('fr:content-updated', observeReveals);
+
+  // The photo moves inside its clipped frame. A 10% overscan leaves a 5%
+  // margin on either side; travel is capped at 3.5%, so no empty edge appears.
+  // Only scroll/resize/filter/load events request a frame; nothing runs idle.
+  const photos = [...document.querySelectorAll('.project-card .project-image')]
+    .map(frame => ({ frame, card: frame.closest('.project-card'), image: frame.querySelector('img') }))
+    .filter(item => item.image);
+  let photoFrame = 0;
+  const photoMotionAllowed = () => finePointer.matches && !reducedMotion.matches;
+  const updatePhotos = () => {
+    photoFrame = 0;
+    if (!photoMotionAllowed() || document.hidden) return;
+    const viewportHeight = window.innerHeight;
+    // Read all geometry before writing any style to avoid layout thrashing.
+    const positions = photos.map(item => {
+      if (item.card.hidden) return null;
+      const rect = item.frame.getBoundingClientRect();
+      if (!rect.height || rect.bottom < 0 || rect.top > viewportHeight) return null;
+      const progress = Math.max(-1, Math.min(1,
+        (viewportHeight / 2 - rect.top - rect.height / 2) / ((viewportHeight + rect.height) / 2)));
+      return { item, shift: progress * Math.min(24, rect.height * .035) };
+    });
+    positions.forEach(position => {
+      if (!position) return;
+      position.item.image.style.transform = `translate3d(0, ${position.shift.toFixed(2)}px, 0) scale(1.10)`;
+    });
+  };
+  const schedulePhotos = () => {
+    if (!photoFrame && photoMotionAllowed() && !document.hidden) {
+      photoFrame = window.requestAnimationFrame(updatePhotos);
+    }
+  };
+  const resetPhotoMotion = () => {
+    if (photoFrame) window.cancelAnimationFrame(photoFrame);
+    photoFrame = 0;
+    const enabled = photoMotionAllowed();
+    photos.forEach(({ frame, image }) => {
+      frame.classList.toggle('fr-photo-parallax', enabled);
+      if (!enabled) image.style.removeProperty('transform');
+    });
+    schedulePhotos();
+  };
+  window.addEventListener('scroll', schedulePhotos, { passive: true });
+  window.addEventListener('resize', schedulePhotos, { passive: true });
+  photos.forEach(({ image }) => image.addEventListener('load', schedulePhotos));
+  const photoFilterObserver = new MutationObserver(() => {
+    schedulePhotos();
+    observeReveals();
+  });
+  photos.forEach(({ card }) => photoFilterObserver.observe(card, { attributes: true, attributeFilter: ['hidden'] }));
+  if ('ResizeObserver' in window) {
+    const photoResizeObserver = new ResizeObserver(schedulePhotos);
+    photos.forEach(({ frame }) => photoResizeObserver.observe(frame));
+  }
+  document.addEventListener('fr:content-updated', schedulePhotos);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && photoFrame) {
+      window.cancelAnimationFrame(photoFrame);
+      photoFrame = 0;
+    } else schedulePhotos();
+  });
+  resetPhotoMotion();
 
   const cursor = make('div', 'fr-cursor-layer');
   const head = make('div', 'fr-cursor-head');
@@ -174,6 +237,7 @@
 
   const resetPreferences = () => {
     hideCursor();
+    resetPhotoMotion();
     if (reducedMotion.matches) {
       revealObserver?.disconnect();
       document.querySelectorAll('.fr-motion-enter').forEach(removeRevealClasses);

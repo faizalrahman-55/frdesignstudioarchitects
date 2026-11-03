@@ -31,3 +31,6 @@
 @media(max-width:1000px){.sketch-overlay{padding:40px 20px}}
 @media(max-width:700px){.sketch-overlay{padding:36px 0 20px}.drawing-bottom{flex-wrap:wrap;gap:8px}.drawing-bottom .sketch-replay{font-size:7px}}
 @media(prefers-reduced-motion:reduce){.sketch-overlay,.sketch-replay{display:none!important}.drawing-frame.sketch-running .hero-art>img,.sketch-running .hotspot{animation:none!important;opacity:1;clip-path:none}}
+
+/* Decorative animation must never hide a keyboard-focused control. */
+.drawing-frame.sketch-running .hotspot:focus-visible{animation:none;opacity:1}

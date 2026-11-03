@@ -10,7 +10,7 @@ All site files and image assets are stored together at the repository root. No b
 
 ## Updates
 
-Edit `index.html`, `styles.css`, `app.js`, `motion.css`, or `motion.js` as needed, preserve the local asset paths, and push to the publishing branch. The website’s project imagery, branding, and other creative content remain subject to their respective rights; this repository does not grant a blanket reuse licence for those assets.
+Edit the HTML, CSS, and JavaScript as needed, preserve the local asset paths, and push to the publishing branch. HTML stylesheet and script URLs include content versions (`?v=…`); refresh those versions when changing an asset and publish the affected HTML pages with it, so returning visitors receive the update. The website’s project imagery, branding, and other creative content remain subject to their respective rights; this repository does not grant a blanket reuse licence for those assets.
 
 ## Licence
 
@@ -23,3 +23,7 @@ See [SECURITY.md](SECURITY.md) for supported versions, private reporting, and th
 ## Landing animation
 
 `sketch.js` and `sketch.css` animate a brief construction-line drawing sequence, then reveal the pencil illustration. The replay control repeats the sequence on demand. The full image remains available without JavaScript; reduced-motion visitors receive the static illustration.
+
+## Project and page animation
+
+`motion.js` and `motion.css` provide clipped photo parallax on fine-pointer devices, section reveals, scroll progress, dialog entrances, and subtle interactive feedback. Photo movement runs only in response to events and remains inside the image crop. Parallax and decorative motion respect reduced-motion preferences; touch devices keep stable project photos. Keyboard-focused controls remain visible throughout animations.

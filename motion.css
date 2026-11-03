@@ -134,3 +134,41 @@
   .fr-motion-enter { animation: none !important; opacity: 1 !important; transform: none !important; }
   .fr-scroll-progress { transition: none; }
 }
+
+/* Project photographs drift gently inside fixed, clipped frames. */
+.project-image.fr-photo-parallax { isolation: isolate; }
+.project-image.fr-photo-parallax img {
+  transform: translate3d(0, 0, 0) scale(1.10);
+  transform-origin: center;
+  transition: filter 420ms ease, scale 420ms cubic-bezier(.2,.7,.3,1);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-card:is(:hover, :focus-visible) .fr-photo-parallax img { scale: 1.018; }
+  .solid-button > span,
+  .project-arrow { transition: transform 240ms cubic-bezier(.2,.7,.3,1); }
+  .solid-button:is(:hover, :focus-visible) > span,
+  .project-card:is(:hover, :focus-visible) .project-arrow { transform: translate(3px, -3px); }
+  .main-nav a { transition: background 220ms ease, color 220ms ease; }
+}
+/* Native details/dialog behaviour remains intact; only their contents arrive. */
+.service-list details[open] .service-body { animation: fr-detail-enter 360ms ease-out; }
+.project-dialog[open],
+.enquiry-dialog[open] { animation: fr-dialog-enter 260ms cubic-bezier(.2,.7,.3,1); }
+@keyframes fr-detail-enter {
+  from { opacity: .35; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fr-dialog-enter {
+  from { opacity: .55; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (hover: none), (pointer: coarse) {
+  .project-card:hover .project-image img { transform: none; scale: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card .project-image img,
+  .project-card:hover .project-image img { transform: none !important; scale: none !important; }
+  .project-arrow, .contact-arrow, .solid-button > span { transform: none !important; }
+  .service-list details[open] .service-body,
+  .project-dialog[open], .enquiry-dialog[open] { animation: none !important; }
+}

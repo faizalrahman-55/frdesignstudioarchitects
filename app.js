@@ -130,9 +130,21 @@ $$('dialog').forEach(dialog => {
 });
 
 let lastBrief = '';
-$('#enquiry-form').addEventListener('submit', event => {
+const enquiryForm = $('#enquiry-form');
+const invalidateBrief = event => {
+  if (typeof event.target.setCustomValidity === 'function') event.target.setCustomValidity('');
+  lastBrief = '';
+  $('#form-status').hidden = true;
+};
+enquiryForm.addEventListener('input', invalidateBrief);
+enquiryForm.addEventListener('change', invalidateBrief);
+enquiryForm.addEventListener('submit', event => {
   event.preventDefault();
   const form = event.currentTarget;
+  const nameField = form.elements.namedItem('name');
+  const messageField = form.elements.namedItem('message');
+  nameField.setCustomValidity(nameField.value.trim() ? '' : 'Please enter your name.');
+  messageField.setCustomValidity(messageField.value.trim() ? '' : 'Please tell us about your project.');
   if (!form.reportValidity()) return;
   const data = Object.fromEntries(new FormData(form));
   lastBrief = `Hello FR Design Studio,\n\nI would like to discuss a project with you.\n\nName: ${data.name.trim()}\nEmail: ${data.email.trim()}\nService: ${data.service}\nProject location: ${data.location.trim() || 'To be discussed'}\n\nAbout my project:\n${data.message.trim()}\n\nBest regards,\n${data.name.trim()}`;
@@ -141,6 +153,7 @@ $('#enquiry-form').addEventListener('submit', event => {
   window.location.href = mailto;
 });
 $('#download-brief').addEventListener('click', () => {
+  if (!lastBrief) return;
   const url = URL.createObjectURL(new Blob([lastBrief], { type: 'text/plain;charset=utf-8' }));
   const anchor = document.createElement('a'); anchor.href = url; anchor.download = 'FR-Design-Studio-project-brief.txt';
   document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
